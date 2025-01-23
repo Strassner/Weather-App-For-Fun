@@ -20,7 +20,8 @@ const SearchBar = () => {
                 setCities(data.map((place, index) => ({
                     cityName: place.name, 
                     cityCountry: place.country,
-                    cityReigon: place.region
+                    cityReigon: place.region,
+                    cityKey: crypto.randomUUID()
                 })));
                 setLoading(false);
             })
@@ -47,8 +48,8 @@ return (
     {error && <p>There was an error!</p>}
     {cities.length > 0 && (
         <ul>
-            {cities.map((city, index) => (
-                <li key={index} onClick={ () => {selectCity(city)}} >
+            {cities.map((city ) => (
+                <li key={city.cityKey} onClick={ () => {selectCity(city)}} >
                         {city.cityName}, {city.cityReigon == '' ? city.cityCountry : city.cityReigon}</li>
                 //add mouse over functionality, where onmouseover = bold text
             ))}
