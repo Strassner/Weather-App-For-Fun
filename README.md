@@ -10,5 +10,7 @@ Currently, two official plugins are available:
 
 # API Keys
 -create a file named SecretVars.js, and place it in the assets folder. 
+
 -Go to https://www.weatherapi.com/ and get a weather api key
+
 -store it in secretvars.js as WEATHER_API_KEY
