@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import  WEATHER_API_KEY  from "./assets/SecretVars.js";
+import "./SearchBar.css";
 const SearchBar = () => {
     const [query, setQuery] = useState(""); //user defined query into the searchbar
     const [error, setError] = useState(null);
@@ -41,6 +42,10 @@ const SearchBar = () => {
         setCities([]);
     }
 
+    const handleMouseOverListItem = (listItem) => {
+        listItem.style.fontWeight = "bold";
+    }
+
 return (
     <>
     <input type="text" placeholder="Search..." value={query} onChange={handleInput} />
@@ -49,9 +54,8 @@ return (
     {cities.length > 0 && (
         <ul>
             {cities.map((city ) => (
-                <li key={city.cityKey} onClick={ () => {selectCity(city)}} >
+                <li key={city.cityKey} onClick={ () => {selectCity(city)}} className="city-list" >
                         {city.cityName}, {city.cityReigon == '' ? city.cityCountry : city.cityReigon}</li>
-                //add mouse over functionality, where onmouseover = bold text
             ))}
         </ul>
     )}
