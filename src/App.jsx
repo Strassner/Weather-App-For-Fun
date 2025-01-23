@@ -5,10 +5,13 @@ import './App.css'
 import './assets/SecretVars.js'
 function App() {
   const [count, setCount] = useState(0)
+  const [city, setCity] = useState('')
   return (
     <>
-      <h1>Weather in Warrensburg today</h1>
-      
+      {(city != '') ?  
+        <h1>Current temp in {city} today:</h1>
+        : <h1>Enter a city to get the current temperature.</h1>
+      }
     </>
   )
 }

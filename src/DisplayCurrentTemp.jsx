@@ -4,7 +4,7 @@ import WEATHER_API_KEY from './assets/SecretVars.js'
 
 const DisplayCurrentTemp = () => {
     const apiKey= WEATHER_API_KEY;
-    const city = '64093';
+    const [city, setCity] = useState(null);
     const [weatherInfo, setWeatherInfo] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -14,7 +14,7 @@ const DisplayCurrentTemp = () => {
         const fetchWeather = async () => {//never uses weather const, maybe can remove fetch weather and minify
              setLoading(true);
              setError(null);
-             const weather = await fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`)
+             fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`)
                 .catch((err) => {
                     setError(err);
                     setLoading(false);
@@ -30,7 +30,7 @@ const DisplayCurrentTemp = () => {
         }
 
         fetchWeather();
-    }, []);
+    }, [city]);
 
     if(error) {
         return 'there was an error! ';

@@ -3,7 +3,7 @@ import  WEATHER_API_KEY  from "./assets/SecretVars.js";
 const SearchBar = () => {
     const [query, setQuery] = useState(""); //user defined query into the searchbar
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [cities, setCities] = useState([]); // cities suggestions from API
 
     const apiKey = WEATHER_API_KEY;
@@ -16,7 +16,12 @@ const SearchBar = () => {
             fetch(`http://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${val}`)
             .then((response) =>  response.json())
             .then((data) => {
-                setCities(data.map((city) => city.name));
+                console.log(data);
+                setCities(data.map((place, index) => ({
+                    cityName: place.name, 
+                    cityCountry: place.country,
+                    cityReigon: place.region
+                })));
                 setLoading(false);
             })
             .catch((err) => {
@@ -31,7 +36,7 @@ const SearchBar = () => {
 
     //when city clicked on by mouse, set the query to the city name and clear the cities array
     const selectCity = (city) => {
-        setQuery(city);
+        setQuery(`${city.cityName}, ${city.cityReigon == '' ? city.cityCountry : city.cityReigon}`);
         setCities([]);
     }
 
@@ -43,8 +48,9 @@ return (
     {cities.length > 0 && (
         <ul>
             {cities.map((city, index) => (
-                <li key={index} onClick={ () => {selectCity(city)}}>{city}</li>
-                //add mouse over functionality, where onmouseover = display city in search bar temporarily
+                <li key={index} onClick={ () => {selectCity(city)}} >
+                        {city.cityName}, {city.cityReigon == '' ? city.cityCountry : city.cityReigon}</li>
+                //add mouse over functionality, where onmouseover = bold text
             ))}
         </ul>
     )}
