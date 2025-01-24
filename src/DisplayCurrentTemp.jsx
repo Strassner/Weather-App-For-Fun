@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import WEATHER_API_KEY from './assets/SecretVars.js'
 
 
-const DisplayCurrentTemp = () => {
+function DisplayCurrentTemp({city, shouldUpdate}) {
     const apiKey= WEATHER_API_KEY;
-    const [city, setCity] = useState(null);
+    //const [city, setCity] = useState(null);
     const [weatherInfo, setWeatherInfo] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -29,8 +29,8 @@ const DisplayCurrentTemp = () => {
                 });
         }
 
-        fetchWeather();
-    }, [city]);
+        shouldUpdate ? fetchWeather() : console.log('no update');
+    }, [shouldUpdate]);
 
     if(error) {
         return 'there was an error! ';
