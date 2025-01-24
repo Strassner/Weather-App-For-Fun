@@ -10,27 +10,27 @@ function DisplayCurrentTemp({city, shouldUpdate}) {
     const [error, setError] = useState(null);
 
 
-    useEffect(() => {
-        const fetchWeather = async () => {//never uses weather const, maybe can remove fetch weather and minify
-             setLoading(true);
-             setError(null);
-             fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`)
-                .catch((err) => {
-                    setError(err);
-                    setLoading(false);
-                    console.log(err);
-                })
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    setWeatherInfo(data);
-                    setLoading(false);
-                });
-        }
+    // useEffect(() => {
+    //     const fetchWeather = async () => {//never uses weather const, maybe can remove fetch weather and minify
+    //          setLoading(true);
+    //          setError(null);
+    //          fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`)
+    //             .catch((err) => {
+    //                 setError(err);
+    //                 setLoading(false);
+    //                 console.log(err);
+    //             })
+    //             .then((response) => {
+    //                 return response.json();
+    //             })
+    //             .then((data) => {
+    //                 setWeatherInfo(data);
+    //                 setLoading(false);
+    //             });
+    //     }
 
-        shouldUpdate ? fetchWeather() : console.log('no update');
-    }, [shouldUpdate]);
+    //     shouldUpdate ? fetchWeather() : console.log('no update');
+    // }, [shouldUpdate]);
 
     if(error) {
         return 'there was an error! ';
