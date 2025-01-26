@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
-import { CityContext } from "./assets/CityContext";
+import { CityContext } from "./CityContext.jsx";
 import WEATHER_API_KEY from './assets/SecretVars.js'
-function GetWeatherInfo({shouldUpdate}) {
+export const GetWeatherInfo = () => {
     const city = useContext(CityContext);
     const apiKey= WEATHER_API_KEY;
     const [isMounted, setIsMounted] = useState(false);
@@ -37,20 +37,8 @@ function GetWeatherInfo({shouldUpdate}) {
          :  setIsMounted(true);
     }, [city]);
 
-    return (
-        <div>
-            <h3>Weather Information</h3>
-            <p>Temperature: {weatherInfo.temp_f} °F</p>
-            <p>Feels Like: {weatherInfo.feelslike_f} °F</p>
-            <p>Wind Chill: {weatherInfo.windchill_f} °F</p>
-            <p>Heat Index: {weatherInfo.heatindex_f} °F</p>
-            <p>Wind Speed: {weatherInfo.wind_mph} mph</p>
-            <p>Wind Direction: {weatherInfo.wind_dir}</p>
-            <p>Precipitation: {weatherInfo.precip_in} inches</p>
-            <p>Humidity: {weatherInfo.humidity} %</p>
-        </div>
-    );
+    return weatherInfo;
 }
 
 
-export default GetWeatherInfo
+//export default GetWeatherInfo

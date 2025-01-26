@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { CityContext } from './assets/CityContext.jsx';
+import { CityContext } from './CityContext.jsx';
 
 export const WeatherInfoContext = createContext({
     temp_f: null,

@@ -32,13 +32,13 @@ function DisplayCurrentTemp({city, shouldUpdate}) {
     //     shouldUpdate ? fetchWeather() : console.log('no update');
     // }, [shouldUpdate]);
 
-    if(error) {
-        return 'there was an error! ';
-    }
+    // if(error) {
+    //     return 'there was an error! ';
+    // }
 
-    if(loading) {
-        return 'loading...';
-    }
+    // if(loading) {
+    //     return 'loading...';
+    // }
 
     if(weatherInfo) {
         console.log(weatherInfo.current.temp_f);

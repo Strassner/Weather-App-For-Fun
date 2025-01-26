@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
-import { CityContext } from './assets/CityContext.jsx';
+import { CityContext } from './CityContext.jsx';
 
 function DisplayCurrentPrecipitation() { 
 //next thing to do: the temp/precip/...data only changed when the prop shouldUpdate is true, and is changed. 
@@ -17,7 +17,7 @@ function DisplayCurrentPrecipitation() {
 
     return(
         <div>
-            <h3>Precipitation in {city}</h3>
+            <h3>Precipitation in {city}: </h3>
         </div>
     );
 }
