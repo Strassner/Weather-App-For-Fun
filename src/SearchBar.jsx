@@ -15,7 +15,7 @@ function SearchBar (props)  {
         setQuery(val);
         if (val.length > 2){
             setLoading(true);
-            fetch(`http://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${val}`)
+            fetch(`http://api.weatherapi.com/v1/search.json?key=${apiKey}&q=/${val}`)
             .then((response) =>  response.json())
             .then((data) => {
                 console.log(data);
@@ -51,9 +51,12 @@ function SearchBar (props)  {
 
 return (
     <>
+    <div>
     <form onSubmit={(e) => {e.preventDefault(); handleCitySubmit(query);}}>
-    <input type="text" placeholder="Search..." value={query} onChange={handleInput} />
+    <input type="text" placeholder="Find your city..." value={query} onChange={handleInput} />
     </form>
+    </div>
+    <div className="city-list-container">
     {loading && <p>Loading...</p>}
     {error && <p>There was an error!</p>}
     {cities.length > 0 && (
@@ -64,6 +67,7 @@ return (
             ))}
         </ul>
     )}
+    </div>
     </>
 )
 }
