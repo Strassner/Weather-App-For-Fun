@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../assets/Outfit-Medium.ttf');
+}
+.pretty-div{
+  background-color: #8AC2FF;
+  opacity: .8;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+*{
+  font-family: 'Outfit','Courier New', Courier, monospace;
+}

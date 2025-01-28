@@ -1,10 +1,8 @@
 import SearchBar from "./SearchBar";
 import { useState } from "react";
-import Button from "react-bootstrap/Button"; 
 import OffCanvas from "react-bootstrap/Offcanvas";
 import { ReactSVG } from "react-svg";
-import globalSearchIcon from "./assets/GlobalSearchIcon.svg";
-import { useContext } from "react";
+import globalSearchIcon from "../assets/GlobalSearchIcon.svg";
 
 function OffCanvasBar({changeCity, updateWeatherData}) {
     const [show, setShow] = useState(false);
@@ -12,7 +10,7 @@ function OffCanvasBar({changeCity, updateWeatherData}) {
 
     return (
         <>
-            <button style={{background:'none'}} onClick={() => setShow(true)}><ReactSVG src={globalSearchIcon}/></button>
+            <button style={{background:'none', position:'absolute'}} onClick={() => setShow(true)}><ReactSVG src={globalSearchIcon}/></button>
 
             <OffCanvas show={show} onHide={() => setShow(false)}>
                 <OffCanvas.Header closeButton>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import  WEATHER_API_KEY  from "./assets/SecretVars.js";
-import "./stylesheets/SearchBar.css";
+import  WEATHER_API_KEY  from "../assets/SecretVars.js";
+import "../stylesheets/SearchBar.css";
 function SearchBar (props)  {
     const [query, setQuery] = useState(""); //user defined query into the searchbar
     const [error, setError] = useState(null);
@@ -43,16 +43,20 @@ function SearchBar (props)  {
         setCities([]);
     }
 
-    const handleCitySubmit = (city) => {
+    const handleCityClick = (city) => {
         city = '' ? alert("Please enter a city")
-        : props.changeCity(city);
-        props.updateWeatherData(true);
+        : props.changeCity(city), props.updateWeatherData(true);
+    }
+
+    const handleCityFormSubmit = () => {
+        cities.length > 0 ? handleCityClick(cities[0].cityName) 
+        : alert("Please enter a city");//change this so that the error message pops up around the search bar, not an alert at top of screen
     }
 
 return (
     <>
     <div>
-    <form onSubmit={(e) => {e.preventDefault(); handleCitySubmit(query);}}>
+    <form onSubmit={(e) => {e.preventDefault(); handleCityFormSubmit(query);}}> 
     <input type="text" placeholder="Find your city..." value={query} onChange={handleInput} />
     </form>
     </div>
@@ -62,7 +66,7 @@ return (
     {cities.length > 0 && (
         <ul>
             {cities.map((city ) => (
-                <li key={city.cityKey} onClick={ () => {selectCity(city); handleCitySubmit(city.cityName)}} className="city-list" >
+                <li key={city.cityKey} onClick={ () => {selectCity(city); handleCityClick(city.cityName)}} className="city-list" >
                         {city.cityName}, {city.cityReigon == '' ? city.cityCountry : city.cityReigon}</li>
             ))}
         </ul>
