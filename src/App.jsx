@@ -5,7 +5,7 @@ import SearchBar from './SearchBar.jsx'
 import { CityContext } from './CityContext.jsx';
 import WeatherDataCardHolder from './WeatherDataCardHolder.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import OffCanvasBar from './OffCanvasBar.jsx';
 
 function App() {
   const [city, setCity] = useState('')
@@ -13,11 +13,13 @@ function App() {
   return (
     <>
     <CityContext.Provider value={city}>
+      <div style={{display: 'flex',  alignItems: 'center',}}>
+      <OffCanvasBar changeCity={setCity} updateWeatherData={setCityChanged} />
       {(city != '') ?  
-        <h1>Current temp in {city} today:</h1>
-        : <h1>Enter a city to get the current temperature.</h1>
+        <h1>{city}</h1>
+        : <h1 style={{textAlign: 'center', flexGrow: '1'}}>test</h1>
       }
-      <SearchBar changeCity={setCity} updateWeatherData={setCityChanged}/>
+      </div>
       <WeatherDataCardHolder/> 
     </CityContext.Provider>
     </>
