@@ -45,7 +45,7 @@ function SearchBar (props)  {
 
     const handleCityClick = (city) => {
         city = '' ? alert("Please enter a city")
-        : props.changeCity(city), props.updateWeatherData(true);
+        : props.changeCity(city), props.updateWeatherData(true), props.setOffCanvasShow(false);
     }
 
     const handleCityFormSubmit = () => {

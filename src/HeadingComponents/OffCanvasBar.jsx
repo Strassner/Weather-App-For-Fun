@@ -17,7 +17,7 @@ function OffCanvasBar({changeCity, updateWeatherData}) {
                     <OffCanvas.Title>Search for a city</OffCanvas.Title>
                 </OffCanvas.Header>
                 <OffCanvas.Body>
-                    <SearchBar changeCity={changeCity} updateWeatherData={updateWeatherData}/>
+                    <SearchBar changeCity={changeCity} updateWeatherData={updateWeatherData} setOffCanvasShow={setShow}/>
                 </OffCanvas.Body>
             </OffCanvas>
 
