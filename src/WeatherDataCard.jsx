@@ -3,12 +3,11 @@ import  Card  from "react-bootstrap/Card";
 function WeatherDataCard({title, weatherData}) {
     return(
         <>
-        <Card  text="light" style={{ width: '25%', height:'auto', backgroundColor:'#85A9FF'}} className="m-2">
-        <Card.Title style={{textAlign:'center', fontSize:'100%'}}>{title}</Card.Title>
-            <Card.Body>
-                <Card.Text>
-                    {weatherData}
-                </Card.Text>
+        <Card  text="light" style={{ width: '8rem', height:'auto', backgroundColor:'#85A9FF', padding:'0.5rem'}} className="m-2">
+        {/* <Card.Title style={{textAlign:'center', fontSize:'100%'}}>{title}</Card.Title> */}
+            <Card.Body style={{padding:'0', display:'flex',flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+                <h5 style={{}}>{title}</h5>
+                <p>{weatherData}</p>
             </Card.Body>
         </Card>
         </>
