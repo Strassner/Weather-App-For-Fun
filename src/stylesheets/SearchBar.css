@@ -1,11 +1,20 @@
 .city-list-container{
-    height: 10rem;
-    /* overflow-y: auto; */
-    /* margin-top: 1rem; */
+    background: #85A9FF;
+    border-radius: 1rem;
 }
 
+
+.city-list{
+    color: white;
+    padding: .5rem;
+}
 
 .city-list:hover{
     font-weight: bold;
     cursor: pointer;
+}
+
+.search-bar{
+    width: 100%;
+    border-radius: 1rem;
 }

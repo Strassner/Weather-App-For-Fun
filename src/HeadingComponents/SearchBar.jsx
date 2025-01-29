@@ -54,10 +54,10 @@ function SearchBar (props)  {
     }
 
 return (
-    <>
+    <div className="pretty-div">
     <div>
-    <form onSubmit={(e) => {e.preventDefault(); handleCityFormSubmit(query);}}> 
-    <input type="text" placeholder="Find your city..." value={query} onChange={handleInput} />
+    <form  onSubmit={(e) => {e.preventDefault(); handleCityFormSubmit(query);}}> 
+    <input type="text" placeholder="Find your city..." value={query} onChange={handleInput} className="search-bar" />
     </form>
     </div>
     <div className="city-list-container">
@@ -72,7 +72,7 @@ return (
         </ul>
     )}
     </div>
-    </>
+    </div>
 )
 }
 
