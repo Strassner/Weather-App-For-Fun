@@ -1,7 +1,5 @@
-import { useContext } from "react";
 import { GetWeatherInfo } from "./GetWeatherInfo";
 import WeatherDataCard from "./WeatherDataCard";
-import { CardGroup, Row } from "react-bootstrap";
 function WeatherDataCardHolder() {
     const weatherInfo = GetWeatherInfo();
     return(

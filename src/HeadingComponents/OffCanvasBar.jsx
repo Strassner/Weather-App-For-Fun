@@ -6,7 +6,6 @@ import globalSearchIcon from "../assets/GlobalSearchIcon.svg";
 
 function OffCanvasBar({changeCity, updateWeatherData}) {
     const [show, setShow] = useState(false);
-    //const city = useContext(CityContext);
 
     return (
         <>

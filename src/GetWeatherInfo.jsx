@@ -39,6 +39,3 @@ export const GetWeatherInfo = () => {
 
     return weatherInfo;
 }
-
-
-//export default GetWeatherInfo

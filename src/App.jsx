@@ -1,12 +1,9 @@
 import { useState } from 'react'
 import './stylesheets/App.css'
 import './assets/SecretVars.js'
-import SearchBar from './HeadingComponents/SearchBar.jsx'
 import { CityContext } from './CityContext.jsx';
 import WeatherDataCardHolder from './WeatherDataCardHolder.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import OffCanvasBar from './HeadingComponents/OffCanvasBar.jsx';
-import CityHeader from './HeadingComponents/CityHeader.jsx';
 import HeadingComponent from './HeadingComponents/HeadingComponent.jsx';
 
 function App() {
