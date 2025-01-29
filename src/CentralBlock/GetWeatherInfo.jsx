@@ -1,20 +1,11 @@
 import { useState, useContext, useEffect } from "react";
-import { CityContext } from "./CityContext.jsx";
-import WEATHER_API_KEY from './assets/SecretVars.js'
+import { CityContext } from "../CityContext.jsx";
+import WEATHER_API_KEY from '../assets/SecretVars.js'
 export const GetWeatherInfo = () => {
     const city = useContext(CityContext);
     const apiKey= WEATHER_API_KEY;
     const [isMounted, setIsMounted] = useState(false);
-    const [weatherInfo, setWeatherInfo] = useState({
-        temp_f: null,
-        feelslike_f: null,
-        windchill_f: null,
-        heatindex_f: null,
-        wind_mph: null,
-        wind_dir: null,
-        precip_in: null,
-        humidity: null,
-    });
+    const [weatherInfo, setWeatherInfo] = useState({});
 
     useEffect(() => {
         const fetchWeather = async () => {
@@ -32,7 +23,11 @@ export const GetWeatherInfo = () => {
                     humidity: data.current.humidity,
                     cloud: data.current.cloud,
                     sunrise: data.forecast.forecastday[0].astro.sunrise,
-                    precip_chance: data.forecast.forecastday[0].day.daily_chance_of_rain
+                    sunset: data.forecast.forecastday[0].astro.sunset,
+                    precip_chance: data.forecast.forecastday[0].day.daily_chance_of_rain,
+                    uv: data.forecast.forecastday[0].day.uv,
+                    condition_icon_url: data.current.condition.icon,
+                    condition: data.current.condition.text,
                 });
             })
         }

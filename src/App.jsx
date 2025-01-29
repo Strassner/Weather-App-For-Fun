@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './stylesheets/App.css'
 import './assets/SecretVars.js'
 import { CityContext } from './CityContext.jsx';
-import WeatherDataCardHolder from './WeatherDataCardHolder.jsx'
+import WeatherDataCardHolder from './CentralBlock/WeatherDataCardHolder.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HeadingComponent from './HeadingComponents/HeadingComponent.jsx';
 
