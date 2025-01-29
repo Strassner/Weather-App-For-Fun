@@ -4,7 +4,6 @@ import WeatherDataCard from "./WeatherDataCard";
 import { CardGroup, Row } from "react-bootstrap";
 function WeatherDataCardHolder() {
     const weatherInfo = GetWeatherInfo();
-//HANDLE WHEN WEATHERINFO IS NULL
     return(
         <>
         <div className="pt-3" style={{display:'flex', flexDirection:'column'}}>

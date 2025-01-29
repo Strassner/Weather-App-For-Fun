@@ -1,6 +1,8 @@
 import  Card  from "react-bootstrap/Card";
 
 function WeatherDataCard({title, weatherData}) {
+    `${weatherData}`.includes('null') ? weatherData='--'
+    : console.log('no null');
     return(
         <>
         <Card  text="light" style={{ width: '8rem', height:'auto', backgroundColor:'#85A9FF', padding:'0.5rem'}} className="m-2">
