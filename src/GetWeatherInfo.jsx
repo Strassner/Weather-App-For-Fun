@@ -18,7 +18,7 @@ export const GetWeatherInfo = () => {
 
     useEffect(() => {
         const fetchWeather = async () => {
-            fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`)
+            fetch(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=1&aqi=no&alerts=no`)
             .then((response) => response.json())
             .then((data) => {
                 setWeatherInfo({
@@ -29,7 +29,10 @@ export const GetWeatherInfo = () => {
                     wind_mph: data.current.wind_mph,
                     wind_dir: data.current.wind_dir,
                     precip_in: data.current.precip_in,
-                    humidity: data.current.humidity
+                    humidity: data.current.humidity,
+                    cloud: data.current.cloud,
+                    sunrise: data.forecast.forecastday[0].astro.sunrise,
+                    precip_chance: data.forecast.forecastday[0].day.daily_chance_of_rain
                 });
             })
         }

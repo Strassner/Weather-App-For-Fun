@@ -19,7 +19,6 @@ function OffCanvasBar({changeCity, updateWeatherData}) {
                     <SearchBar changeCity={changeCity} updateWeatherData={updateWeatherData} setOffCanvasShow={setShow}/>
                 </OffCanvas.Body>
             </OffCanvas>
-
         </>
     );
 }
