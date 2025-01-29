@@ -5,15 +5,15 @@ import { ReactSVG } from "react-svg";
 import globalSearchIcon from "../assets/GlobalSearchIcon.svg";
 
 function OffCanvasBar({changeCity, updateWeatherData}) {
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(true);
 
     return (
         <>
             <button style={{background:'none', position:'absolute'}} onClick={() => setShow(true)}><ReactSVG src={globalSearchIcon}/></button>
 
-            <OffCanvas show={show} onHide={() => setShow(false)}>
+            <OffCanvas style={{background: '#8D9EB1'}} show={show} onHide={() => setShow(false)}>
                 <OffCanvas.Header closeButton>
-                    <OffCanvas.Title>Search for a city</OffCanvas.Title>
+                    <OffCanvas.Title style={{color:'white'}}>Find Weather In Your Area</OffCanvas.Title>
                 </OffCanvas.Header>
                 <OffCanvas.Body>
                     <SearchBar changeCity={changeCity} updateWeatherData={updateWeatherData} setOffCanvasShow={setShow}/>
