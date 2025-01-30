@@ -1,11 +1,14 @@
 import { useState, useContext, useEffect } from "react";
 import { CityContext } from "../CityContext.jsx";
 import WEATHER_API_KEY from '../assets/SecretVars.js'
+
+//This is a const because only one component needed this data(which it passes to its children only one level down)
+//so this is better than making 'weatherContext' or similar in my mind
 export const GetWeatherInfo = () => {
     const city = useContext(CityContext);
     const apiKey= WEATHER_API_KEY;
-    const [isMounted, setIsMounted] = useState(false);
-    const [weatherInfo, setWeatherInfo] = useState({});
+    const [isMounted, setIsMounted] = useState(false);//stops this from fetching on mount
+    const [weatherInfo, setWeatherInfo] = useState({});//holds all the fetched weather info
 
     useEffect(() => {
         const fetchWeather = async () => {
@@ -28,12 +31,14 @@ export const GetWeatherInfo = () => {
                     uv: data.forecast.forecastday[0].day.uv,
                     condition_icon_url: data.current.condition.icon,
                     condition: data.current.condition.text,
+                    today_high_f: data.forecast.forecastday[0].day.maxtemp_f,
+                    today_low_f: data.forecast.forecastday[0].day.mintemp_f
                 });
             })
         }
          isMounted ? fetchWeather()//this stops from fetching data on component mount
          :  setIsMounted(true);
-    }, [city]);
+    }, [city]);//update/fetch again when city is changed
 
     return weatherInfo;
 }
